@@ -1,0 +1,695 @@
+[
+    {
+        "id": "c8c369e5755f41ed",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "51527f58ead780bd",
+        "type": "mqtt in",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "topic": "esp32/tempAmbiente",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "561f1e3d96e95ff3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 206.66666666666666,
+        "wires": [
+            [
+                "b7f38a645147fa3f",
+                "3e3a9c8ff309664f"
+            ]
+        ]
+    },
+    {
+        "id": "1060ab38d608ec4f",
+        "type": "mqtt in",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "topic": "esp32/tempDispositivo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "561f1e3d96e95ff3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 210,
+        "wires": [
+            [
+                "cea2cd5fe0a2e1df",
+                "07f86a133e7bdc88"
+            ]
+        ]
+    },
+    {
+        "id": "b7f38a645147fa3f",
+        "type": "ui_chart",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "group": "09c4223e1e7d6012",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura Ambiente",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "55",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1a5fb4",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 460,
+        "y": 207,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cea2cd5fe0a2e1df",
+        "type": "ui_chart",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "group": "09c4223e1e7d6012",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura Dispositivo",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "90",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1050,
+        "y": 211,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2714e8d730afb71b",
+        "type": "inject",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "tempAmbMin",
+        "payload": "-20",
+        "payloadType": "num",
+        "x": 190,
+        "y": 273.3333333333333,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30b2e41b70ad42b1",
+        "type": "inject",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "tempAmbMax",
+        "payload": "40",
+        "payloadType": "num",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ab4c5ca37f311cc",
+        "type": "mqtt in",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "topic": "esp32/humAmbiente",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "561f1e3d96e95ff3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "ebee6a6abe367113"
+            ]
+        ]
+    },
+    {
+        "id": "ebee6a6abe367113",
+        "type": "ui_gauge",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "group": "8a1f2809679ba4e3",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad Relativa Ambiente",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ba039669498c77fa",
+        "type": "ui_led2",
+        "z": "c8c369e5755f41ed",
+        "order": 1,
+        "group": "4d44a4f4bd8c90db",
+        "width": "6",
+        "height": "2",
+        "label": "VERIFICAR",
+        "property": "payload",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#deddda",
+                "value": "OK",
+                "valueType": "str"
+            },
+            {
+                "color": "#f6d32d",
+                "value": "VERIFY",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 400,
+        "wires": [],
+        "icon": "node-red/alert.svg"
+    },
+    {
+        "id": "867e2bba2212d50b",
+        "type": "mqtt in",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "topic": "esp32/alerta",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "561f1e3d96e95ff3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "84eb8eb0fe1a1d7e"
+            ]
+        ]
+    },
+    {
+        "id": "317a9dc5f65e20e4",
+        "type": "ui_led2",
+        "z": "c8c369e5755f41ed",
+        "order": 3,
+        "group": "4d44a4f4bd8c90db",
+        "width": "6",
+        "height": "2",
+        "label": "DETENER",
+        "property": "payload",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#e01b24",
+                "value": "STOP",
+                "valueType": "str"
+            },
+            {
+                "color": "#deddda",
+                "value": "OK",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 580,
+        "wires": [],
+        "icon": "font-awesome/fa-hand-stop-o"
+    },
+    {
+        "id": "84eb8eb0fe1a1d7e",
+        "type": "switch",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "VERIFY",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "STOP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "6ac72bd24d66ba26",
+                "ba039669498c77fa"
+            ],
+            [
+                "317a9dc5f65e20e4",
+                "b6e9f2c372b215d8"
+            ]
+        ]
+    },
+    {
+        "id": "3e3a9c8ff309664f",
+        "type": "ui_gauge",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "group": "8a1f2809679ba4e3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura Ambiente",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "0",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 460,
+        "y": 273.5,
+        "wires": []
+    },
+    {
+        "id": "07f86a133e7bdc88",
+        "type": "ui_gauge",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "group": "8a1f2809679ba4e3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura del Dispositivo",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "40",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 1060,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ac23c608edeef83a",
+        "type": "inject",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "tempDispMin",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [
+                "cea2cd5fe0a2e1df"
+            ]
+        ]
+    },
+    {
+        "id": "27a4b774f4663f59",
+        "type": "inject",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "tempDispMax",
+        "payload": "80",
+        "payloadType": "num",
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "cea2cd5fe0a2e1df"
+            ]
+        ]
+    },
+    {
+        "id": "444a9580a330c73d",
+        "type": "ui_toast",
+        "z": "c8c369e5755f41ed",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 920,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6ac72bd24d66ba26",
+        "type": "change",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Verificar el  funcionamiento del dispositivo",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 440,
+        "wires": [
+            [
+                "444a9580a330c73d"
+            ]
+        ]
+    },
+    {
+        "id": "b6e9f2c372b215d8",
+        "type": "change",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Detener el Dispositivo",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 620,
+        "wires": [
+            [
+                "444a9580a330c73d"
+            ]
+        ]
+    },
+    {
+        "id": "26ad7debef9aaff1",
+        "type": "ui_button",
+        "z": "c8c369e5755f41ed",
+        "name": "",
+        "group": "4d44a4f4bd8c90db",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reiniciar Alertas",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-refresh",
+        "payload": "OK",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "317a9dc5f65e20e4",
+                "ba039669498c77fa"
+            ]
+        ]
+    },
+    {
+        "id": "95f8bf17073494ef",
+        "type": "ui_spacer",
+        "z": "c8c369e5755f41ed",
+        "name": "spacer",
+        "group": "4d44a4f4bd8c90db",
+        "order": 2,
+        "width": "1",
+        "height": "1"
+    },
+    {
+        "id": "8cf9f0e54ccb3988",
+        "type": "ui_spacer",
+        "z": "c8c369e5755f41ed",
+        "name": "spacer",
+        "group": "8a1f2809679ba4e3",
+        "order": 2,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "cdfb005ca80f963d",
+        "type": "ui_spacer",
+        "z": "c8c369e5755f41ed",
+        "name": "spacer",
+        "group": "09c4223e1e7d6012",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b0ea6f21f5a95ed2",
+        "type": "ui_spacer",
+        "z": "c8c369e5755f41ed",
+        "name": "spacer",
+        "group": "4d44a4f4bd8c90db",
+        "order": 4,
+        "width": "1",
+        "height": "2"
+    },
+    {
+        "id": "561f1e3d96e95ff3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "172.20.0.2",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "09c4223e1e7d6012",
+        "type": "ui_group",
+        "name": "Histórico",
+        "tab": "cc513e20f052c0a2",
+        "order": 3,
+        "disp": true,
+        "width": "9",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "8a1f2809679ba4e3",
+        "type": "ui_group",
+        "name": "Condiciones Actuales",
+        "tab": "cc513e20f052c0a2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4d44a4f4bd8c90db",
+        "type": "ui_group",
+        "name": "Alertas",
+        "tab": "cc513e20f052c0a2",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cc513e20f052c0a2",
+        "type": "ui_tab",
+        "name": "Panel de Control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
